@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Info</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<div id="app">
+    <table>
+        <tr>
+            <th colspan="7">Employee Info</th>
+        </tr>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>E-mail</th>
+            <th>Operation（<a th:href="@{/to/add}">add</a>）</th>
+        </tr>
+        <tr th:each="employee: ${page.list}">
+            <td th:text="${employee.empId}"></td>
+            <td th:text="${employee.empName}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td th:text="${employee.email}"></td>
+            <td>
+                <a @click="deleteEmployee()" th:href="@{'/employee/'+${employee.empId}}">delete</a>
+                <a th:href="@{'/employee/'+${employee.empId}}">update</a>
+            </td>
+        </tr>
+    </table>
+    <form method="post">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+</div>
+
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#app",
+        methods:{
+            deleteEmployee(){
+                //get form
+                var form = document.getElementsByTagName("form")[0];
+                //transfer the acntion from herf --> form
+                //event.target indicate the activated event
+                form.action = event.target.href;
+                //submit form
+                form.submit();
+                //prevent herf action
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+
+<div style="text-align: center;">
+    <a th:if="${page.hasPreviousPage}" th:href="@{/employee/page/1}">Home</a>
+    <a th:if="${page.hasPreviousPage}" th:href="@{'/employee/page/'+ ${page.prePage}}">Prev</a>
+    <span th:each="num : ${page.navigatepageNums}">
+        <a th:if="${page.pageNum == num}" style="color: red;"  th:text="'['+${num}+']'"></a>
+        <a th:if="${page.pageNum != num}" th:href="@{'/employee/page/'+${num}}" th:text="${num}"></a>
+    </span>
+    <a th:if="${page.hasNextPage}" th:href="@{'/employee/page/'+ ${page.nextPage}}">Next</a>
+    <a th:if="${page.hasNextPage}" th:href="@{'/employee/page/'+ ${page.pages}}">Last</a>
+</div>
+</body>
+</html>

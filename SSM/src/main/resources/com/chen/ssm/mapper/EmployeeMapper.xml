@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chen.ssm.mapper.EmployeeMapper">
+
+
+    <!--List<Employee> getAllEmp();-->
+    <select id="getAllEmp" resultType="com.chen.ssm.pojo.Employee">
+        select * from t_emp
+    </select>
+
+    <!--void save(Employee employee);-->
+    <insert id="save" parameterType="com.chen.ssm.pojo.Employee">
+        insert into t_emp (emp_id,emp_name,age,gender,email) values (null,#{empName},#{age},#{gender},#{email})
+    </insert>
+
+    <!-- Employee getEmpById(Integer id); -->
+    <select id="getEmpById" resultType="com.chen.ssm.pojo.Employee">
+        select * from t_emp where emp_id = #{id}
+    </select>
+
+    <!--    void update(Employee employee);-->
+    <update id="update" parameterType="com.chen.ssm.pojo.Employee">
+        update t_emp set emp_name = #{empName}, age=#{age}, gender=#{gender},email=#{email} where emp_id=#{empId}
+    </update>
+
+    <!--void delete(Integer id);-->
+    <delete id="delete">
+        delete from t_emp where emp_id = ${empID}
+    </delete>
+
+
+
+</mapper>
