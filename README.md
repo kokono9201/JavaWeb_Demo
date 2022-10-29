@@ -6,10 +6,10 @@ These are some simple demos for java_web learning
 
 ## [SSM](https://github.com/kokono9201/JavaWeb_Demo/tree/master/SSM)<br>
 A simple order system as Hello, and get familiar with git and using IDEA.<br>
-A simple project managed by Maveon.
-Frame: Spring + SpringMVC + Mybatis
-Simple CURD and page function
-DB: mySQL 5.8
+A simple project managed by Maveon.<br>
+Frame: Spring + SpringMVC + Mybatis<br>
+Simple CURD and page function<br>
+DB: mySQL 5.8<br>
 <details><summary>Screenshot</summary><pre>
 <img src="https://github.com/kokono9201/JavaWeb_Demo/blob/master/IMG/img.png?raw=true"/>
 </pre></details>
