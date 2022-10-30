@@ -23,8 +23,8 @@ public class BookController {
 
     @RequestMapping(value = "/book")
     public String index(Model model){
-        List<Book> Allbook = bookService.getAllBook();
-        model.addAttribute("Allbook", Allbook);
+        List<Book> list = bookService.getBookList();
+        model.addAttribute("list", list);
         return "index";
     }
 

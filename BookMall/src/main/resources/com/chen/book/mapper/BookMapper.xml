@@ -6,8 +6,8 @@
 <!-- mapper class -->
 <mapper namespace="com.chen.book.mapper.BookMapper">
 
-   <!--  List<Book> getAllBook();-->
-    <select id="getAllBook" resultType="com.chen.book.pojo.Book">
+   <!--  List<Book> getBookList();-->
+    <select id="getBookList" resultType="com.chen.book.pojo.Book">
         select * from t_book where bookStatus = 0
     </select>
 

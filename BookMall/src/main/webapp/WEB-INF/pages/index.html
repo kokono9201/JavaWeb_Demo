@@ -152,7 +152,7 @@
               </div>
             </div>
             <div class="list-content">
-              <div href="" class="list-item" th:each="book : ${Allbook}">
+              <div href="" class="list-item" th:each="book : ${list}">
                 <img th:src="@{/static/uploads/{id}(id=${book.bookImg})}" alt="">
                 <p th:text="'Title:' + ${book.bookName}"></p>
                 <p th:text="'Author:' + ${book.author}"></p>
