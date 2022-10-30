@@ -23,3 +23,10 @@ CREATE TABLE `t_emp` (
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 </pre></details>
 
+## [BookMall]<br>
+A Book Mall Demo<br>
+Frame: Spring + SpringMVC + Mybatis<br>
+Login
+Other function still under working ...<br>
+static file copyright aiguitu
+DB: mySQL 5.8 / Tomcat: 8.5.82<br>
