@@ -26,7 +26,7 @@ CREATE TABLE `t_emp` (
 ## [BookMall]<br>
 A Book Mall Demo<br>
 Frame: Spring + SpringMVC + Mybatis<br>
-Login
+<Already finished function>Login<br>
 Other function still under working ...<br>
 static file copyright aiguitu
 DB: mySQL 5.8 / Tomcat: 8.5.82<br>
