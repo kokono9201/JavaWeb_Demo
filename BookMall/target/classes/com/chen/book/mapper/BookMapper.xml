@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper class -->
+<mapper namespace="com.chen.book.mapper.BookMapper">
+
+   <!--  List<Book> getAllBook();-->
+    <select id="getAllBook" resultType="com.chen.book.pojo.Book">
+        select * from t_book where bookStatus = 0
+    </select>
+
+
+</mapper>
