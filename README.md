@@ -8,7 +8,7 @@ These are some simple demos for java_web learning
 A simple project managed by Maveon.<br>
 Frame: Spring + SpringMVC + Mybatis<br>
 Simple CURD and page function<br>
-DB: mySQL 5.8<br>
+DB: mySQL 5.8 / Tomcat: 8.5.82<br>
 <details><summary>Screenshot</summary><pre>
 <img src="https://github.com/kokono9201/JavaWeb_Demo/blob/master/IMG/img.png?raw=true"/>
 </pre></details>
