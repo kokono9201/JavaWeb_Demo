@@ -14,6 +14,16 @@ public class CartItem {
         return id;
     }
 
+    public CartItem() {
+    }
+
+    public CartItem(Book book, Integer buyCount, User userBean) {
+        this.book = book;
+        this.buyCount = buyCount;
+        this.userBean = userBean;
+    }
+
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -42,6 +52,4 @@ public class CartItem {
         this.userBean = userBean;
     }
 
-    public CartItem() {
-    }
 }

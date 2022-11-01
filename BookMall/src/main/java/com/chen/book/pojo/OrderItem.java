@@ -12,6 +12,13 @@ public class OrderItem {
 
     public OrderItem(){}
 
+    public OrderItem(Integer id, Book book, Integer buyCount, OrderBean orderBean) {
+        this.id = id;
+        this.book = book;
+        this.buyCount = buyCount;
+        this.orderBean = orderBean;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -3,48 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>书城首页</title>
+    <title>BookMall</title>
     <link rel="stylesheet" th:href="@{/static/css/minireset.css}" />
     <link rel="stylesheet" th:href="@{/static/css/common.css}" />
     <link rel="stylesheet" th:href="@{/static/css/iconfont.css}" />
     <link rel="stylesheet" th:href="@{/static/css/index.css}" />
     <link rel="stylesheet" th:href="@{/static/css/swiper.min.css}" />
+    <script language="JavaScript" th:src="@{/static/script/index.js}"></script>
   </head>
   <body>
     <div id="app">
       <div class="topbar">
         <div class="w">
           <div class="topbar-left">
-            <i>送至:</i>
-            <i>北京</i>
+            <i>Deliver To:</i>
+            <i>Shanghai</i>
             <i class="iconfont icon-ai-arrow-down"></i>
           </div>
-          <div class="topbar-right">
-            <a href="user/login.html" class="login">登录</a>
-            <a href="user/regist.html" class="register">注册</a>
-            <a
-              href="cart/cart.html"
-              class="cart iconfont icon-gouwuche
-			"
-            >
-              购物车
-              <div class="cart-num">3</div>
+          <p th:text="${currentUser}"></p>
+          <div class="topbar-right" th:if="${currentUser==null}">
+            <a href="user/login.html" class="login">Login</a>
+            <a href="user/regist.html" class="register">Register</a>
+            <a href="cart/cart.html"  class="cart iconfont icon-gouwuche">
+              Cart
+              <div class="cart-num" th:text="${currentUser.cart.totalCount}">3</div>
             </a>
-            <a href="manager/book_manager.html" class="admin">后台管理</a>
+            <a href="manager/book_manager.html" class="admin">Backend Management</a>
           </div>
-<!--          登录后风格-->
-<!--          <div class="topbar-right">-->
-<!--            <span>欢迎你<b>张总</b></span>-->
-<!--            <a href="#" class="register">注销</a>-->
-<!--            <a-->
-<!--                    href="pages/cart/cart.jsp"-->
-<!--                    class="cart iconfont icon-gouwuche-->
-<!--			">-->
-<!--              购物车-->
-<!--              <div class="cart-num">3</div>-->
-<!--            </a>-->
-<!--            <a href="./pages/manager/book_manager.html" class="admin">后台管理</a>-->
-<!--          </div>-->
+          <!--  After login     -->
+          <div class="topbar-right" th:unless="${currentUser==null}">
+            <span>Welcome <b th:text="${currentUser.uname}"/></span>
+            <a href="#" class="register">Logout</a>
+            <a th:href="@{/cart}" class="cart iconfont icon-gouwuche">
+              Cart
+              <div class="cart-num" th:text="${currentUser.cart.totalCount}">3</div>
+            </a>
+            <a href="./pages/manager/book_manager.html" class="admin">Management</a>
+          </div>
         </div>
       </div>
       <div class="header w">
@@ -141,25 +136,25 @@
         <div class="w">
           <div class="list">
             <div class="list-header">
-              <div class="title">图书列表</div>
+              <div class="title">Book List</div>
               <div class="price-search">
-                <span>价格:</span>
+                <span>Price:¥</span>
                 <input type="text">
-                <span>-元</span>
+                <span> - </span>
                 <input type="text">
-                <span>元</span>
-                <button>查询</button>
+                <span></span>
+                <button>Search</button>
               </div>
             </div>
             <div class="list-content">
               <div href="" class="list-item" th:each="book : ${list}">
-                <img th:src="@{/static/uploads/{id}(id=${book.bookImg})}" alt="">
+                <img th:src="@{/static/uploads/{img}(img=${book.bookImg})}" alt="">
                 <p th:text="'Title:' + ${book.bookName}"></p>
                 <p th:text="'Author:' + ${book.author}"></p>
                 <p th:text="'Price:¥' + ${book.price}"></p>
                 <p th:text="'Sales:' + ${book.saleCount}"></p>
                 <p th:text="'Stock:' + ${book.bookCount}"></p>
-                <button>BUY</button>
+                <button th:onclick="|addCart(*{book.id})|">Buy</button>
               </div>
             </div>
             <div class="list-footer">

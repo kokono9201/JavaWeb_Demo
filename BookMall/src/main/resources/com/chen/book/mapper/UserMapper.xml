@@ -11,5 +11,9 @@
         select * from t_user where uname like #{uname} and pwd like #{pwd}
     </select>
 
+    <select id="get" resultType="com.chen.book.pojo.User">
+        select * from t_user where uname = #{userBean}
+    </select>
+
 
 </mapper>

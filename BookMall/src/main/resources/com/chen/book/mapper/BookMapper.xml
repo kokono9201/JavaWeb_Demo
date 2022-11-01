@@ -11,5 +11,9 @@
         select * from t_book where bookStatus = 0
     </select>
 
+    <!--Book getBook(Integer id);-->
+    <select id="getBook" resultType="com.chen.book.pojo.Book">
+        select * from t_book where id = #{id}
+    </select>
 
 </mapper>

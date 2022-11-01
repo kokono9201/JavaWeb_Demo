@@ -5,6 +5,7 @@ import com.chen.book.pojo.Book;
 import com.chen.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @create 2022-10-31-0:57
  */
 @Service
+@Transactional
 public class BookServiceImpl implements BookService {
 
     @Autowired
@@ -22,5 +24,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getBookList() {
         return bookMapper.getBookList();
+    }
+
+    @Override
+    public Book getBook(Integer id) {
+        return bookMapper.getBook(id);
     }
 }

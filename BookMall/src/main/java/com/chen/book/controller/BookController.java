@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,12 +18,15 @@ import java.util.List;
  * @create 2022-10-31-1:03
  */
 @Controller
+@SessionAttributes("currentUser")
 public class BookController {
 
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(value = "/book")
+
+
+    @RequestMapping(value = "/booklist")
     public String index(Model model){
         List<Book> list = bookService.getBookList();
         model.addAttribute("list", list);
