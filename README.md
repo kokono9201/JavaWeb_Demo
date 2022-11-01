@@ -23,7 +23,7 @@ CREATE TABLE `t_emp` (
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 </pre></details>
 
-## [BookMall]<br>
+## [BookMall](https://github.com/kokono9201/JavaWeb_Demo/tree/master/BookMall)<br>
 A Book Mall Demo<br>
 Frame: Spring + SpringMVC + Mybatis<br>
 [Already finished function] Login<br>
