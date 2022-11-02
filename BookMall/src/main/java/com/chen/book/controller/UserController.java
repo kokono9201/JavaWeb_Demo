@@ -42,7 +42,7 @@ public class UserController {
             user.setCart(cart);
             map.addFlashAttribute("currentUser",user);
 
-            return "redirect:/booklist";
+            return "redirect:/index";
         }
 
         return "/user/login";

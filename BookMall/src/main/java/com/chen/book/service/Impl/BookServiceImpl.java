@@ -15,7 +15,6 @@ import java.util.List;
  * @create 2022-10-31-0:57
  */
 @Service
-@Transactional
 public class BookServiceImpl implements BookService {
 
     @Autowired

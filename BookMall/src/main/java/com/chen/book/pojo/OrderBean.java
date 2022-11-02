@@ -10,6 +10,8 @@ import java.util.List;
 public class OrderBean {
     private Integer id;
     private String orderNo;
+    private User orderUser;
+    private double orderMoney;
     private Date orderDate;
 
     public Integer getId() {
@@ -68,8 +70,6 @@ public class OrderBean {
         this.orderItemlist = orderItemlist;
     }
 
-    private User orderUser;
-    private Double orderMoney;
     private Integer orderStatus;
 
     private List<OrderItem> orderItemlist;

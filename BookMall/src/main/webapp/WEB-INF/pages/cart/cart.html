@@ -57,7 +57,7 @@
               </td>
               <td th:text="${cartItem.book.price}">40.1</td>
               <td th:text="${cartItem.book.price * cartItem.buyCount}">40.1</td>
-              <td><a href="">删除</a></td>
+              <td><a href="">Delete</a></td>
             </tr>
           </tbody>
         </table>
@@ -69,7 +69,7 @@
           <div class="footer-right">
             <div>Total <span th:text="${session.currentUser.cart.totalBookCount}">3</span> Items</div>
             <div class="total-price">Total Money ¥<span th:text="${session.currentUser.cart.totalMoney}">99.9</span></div>
-            <a class="pay" href="checkout.html">去结账</a>
+            <a class="pay" th:href="@{/checkout}">CheckOut</a>
           </div>
         </div>
       </div>

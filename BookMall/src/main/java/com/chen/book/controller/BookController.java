@@ -26,7 +26,7 @@ public class BookController {
 
 
 
-    @RequestMapping(value = "/booklist")
+    @RequestMapping(value = "/index")
     public String index(Model model){
         List<Book> list = bookService.getBookList();
         model.addAttribute("list", list);
