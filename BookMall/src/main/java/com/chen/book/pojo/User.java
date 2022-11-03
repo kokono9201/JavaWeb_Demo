@@ -11,7 +11,7 @@ public class User {
     private String uname;
     private String pwd;
     private String email;
-    private Integer role;
+    private Integer role=0;
 
     private Cart cart;
 
@@ -21,6 +21,12 @@ public class User {
 
     public void setOrderBeanList(List<OrderBean> orderBeanList) {
         this.orderBeanList = orderBeanList;
+    }
+
+    public User(String uname, String pwd, String email) {
+        this.uname = uname;
+        this.pwd = pwd;
+        this.email = email;
     }
 
     private List<OrderBean> orderBeanList;

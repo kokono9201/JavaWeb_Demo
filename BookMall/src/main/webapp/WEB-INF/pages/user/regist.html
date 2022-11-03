@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>尚硅谷会员注册页面</title>
-    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" />
-    <link rel="stylesheet" href="../../static/css/register.css" />
+    <title>Register</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/static/css/register.css}" />
     <style type="text/css">
       .login_form {
         height: 420px;
@@ -15,53 +15,53 @@
   <body>
     <div id="login_header">
       <a href="../index.html">
-        <img class="logo_img" alt="" src="../../static/img/logo.gif" />
+        <img class="logo_img" alt="" th:src="@{/static/img/logo.gif}" />
       </a>
     </div>
 
     <div class="login_banner">
       <div class="register_form">
-        <h1>注册尚硅谷会员</h1>
-        <form action="regist_success.html">
+        <h1>Register</h1>
+        <form th:action="@{/regist}" method="post">
           <div class="form-item">
             <div>
-              <label>用户名称:</label>
-              <input type="text" placeholder="请输入用户名" />
+              <label>Account:</label>
+              <input type="text" name="uname" placeholder="Please input account name" />
             </div>
-            <span class="errMess">用户名应为6~16位数组和字母组成</span>
+            <span class="errMess">account name should include 6~16 numbers and letters</span>
           </div>
           <div class="form-item">
             <div>
-              <label>用户密码:</label>
-              <input type="password" placeholder="请输入密码" />
+              <label>Password:</label>
+              <input type="password" name="pwd" placeholder="Please input password" />
             </div>
-            <span class="errMess">密码的长度至少为8位</span>
+            <span class="errMess">password should more than 8 letters</span>
           </div>
           <div class="form-item">
             <div>
-              <label>确认密码:</label>
-              <input type="password" placeholder="请输入确认密码" />
+              <label>Confirm:</label>
+              <input type="password" placeholder="Please confirm password" />
             </div>
-            <span class="errMess">密码两次输入不一致</span>
+            <span class="errMess">Password input is different</span>
           </div>
           <div class="form-item">
             <div>
-              <label>用户邮箱:</label>
-              <input type="text" placeholder="请输入邮箱" />
+              <label>Mail address:</label>
+              <input type="text" name="email" placeholder="Please input mail address" />
             </div>
-            <span class="errMess">请输入正确的邮箱格式</span>
+            <span class="errMess">Please input proper mail address</span>
           </div>
           <div class="form-item">
             <div>
-              <label>验证码:</label>
+              <label>captcha:</label>
               <div class="verify">
-                <input type="text" placeholder="" />
-                <img src="../../static/img/code.bmp" alt="" />
+                <input type="text" name="verifyCode" placeholder="" />
+                <img th:src="@{/Kaptcha.jpg}" alt="" />
               </div>
             </div>
-            <span class="errMess">请输入正确的验证码</span>
+            <span class="errMess">Please input correct captcha</span>
           </div>
-          <button class="btn">注册</button>
+          <button class="btn">Regist</button>
         </form>
       </div>
     </div>

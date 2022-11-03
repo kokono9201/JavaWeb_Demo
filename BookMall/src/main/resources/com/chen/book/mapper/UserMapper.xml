@@ -15,5 +15,10 @@
         select * from t_user where uname = #{userBean}
     </select>
 
+    <!--void addUser(User user);-->
+    <insert id="addUser" parameterType="com.chen.book.pojo.User">
+        insert into t_user values (null,#{uname},#{pwd},#{email},0)
+    </insert>
+
 
 </mapper>

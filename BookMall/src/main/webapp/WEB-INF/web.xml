@@ -70,6 +70,63 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Kaptcha</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+        <!-- 定义验证码样式 -->
+        <!-- 是否有边框 -->
+        <init-param>
+            <param-name>kaptcha.border</param-name>
+            <!-- 没有边框 no -->
+            <param-value>no</param-value>
+        </init-param>
+        <!-- 字体颜色 -->
+        <init-param>
+            <param-name>kaptcha.textproducer.font.color</param-name>
+            <param-value>red</param-value>
+        </init-param>
+        <!-- 图片宽度 -->
+        <init-param>
+            <param-name>kaptcha.image.width</param-name>
+            <param-value>130</param-value>
+        </init-param>
+        <!-- 使用哪些字符生成验证码 -->
+        <init-param>
+            <param-name>kaptcha.textProducer.char.string</param-name>
+            <param-value>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890</param-value>
+        </init-param>
+        <!-- 图片高度 -->
+        <init-param>
+            <param-name>kaptcha.image.height</param-name>
+            <param-value>40</param-value>
+        </init-param>
+        <!-- 字体大小 -->
+        <init-param>
+            <param-name>kaptcha.textproducer.font.size</param-name>
+            <param-value>33</param-value>
+        </init-param>
+        <!-- 干扰线的颜色 -->
+        <init-param>
+            <param-name>kaptcha.noise.color</param-name>
+            <param-value>black</param-value>
+        </init-param>
+        <!-- 验证码字符个数 -->
+        <init-param>
+            <param-name>kaptcha.textproducer.char.length</param-name>
+            <param-value>4</param-value>
+        </init-param>
+        <!-- 字体 -->
+        <init-param>
+            <param-name>kaptcha.textproducer.font.names</param-name>
+            <param-value>Aria</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Kaptcha</servlet-name>
+        <url-pattern>/Kaptcha.jpg</url-pattern>
+    </servlet-mapping>
+
+
     <!-- spring xml location -->
     <context-param>
         <param-name>contextConfigLocation</param-name>

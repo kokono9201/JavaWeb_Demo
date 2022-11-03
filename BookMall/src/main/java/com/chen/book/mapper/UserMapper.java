@@ -13,5 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserMapper {
 
     User getUser(@Param("uname") String uname, @Param("pwd") String pwd);
+    void addUser(User user);
 
 }

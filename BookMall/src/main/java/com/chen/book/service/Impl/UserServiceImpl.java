@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService {
     public User login(String uname, String pwd) {
         return userMapper.getUser(uname, pwd);
     }
+
+    @Override
+    public void regist(User user) {
+        userMapper.addUser(user);
+    }
 }
