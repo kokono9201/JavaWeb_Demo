@@ -1,5 +1,7 @@
 package com.chen.book.pojo;
 
+import java.math.BigDecimal;
+
 /**
  * @author CHEN
  * @create 2022-10-30-22:05
@@ -9,6 +11,20 @@ public class CartItem {
     private Book book;
     private Integer buyCount;
     private User userBean;
+    private Double tempCount;
+
+    public Double getTempCount() {
+        BigDecimal bigDecimalPrice = new BigDecimal(getBook().getPrice()+"");
+        BigDecimal bigDecimalBuyCount = new BigDecimal(buyCount+"");
+        BigDecimal multiply = bigDecimalPrice.multiply(bigDecimalBuyCount);
+        tempCount = multiply.doubleValue();
+        return tempCount;
+    }
+
+    public CartItem(Integer cartItemId, Integer buyCount) {
+        this.id=cartItemId;
+        this.buyCount=buyCount;
+    }
 
     public Integer getId() {
         return id;

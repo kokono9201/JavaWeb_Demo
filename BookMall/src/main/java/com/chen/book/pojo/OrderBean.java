@@ -14,6 +14,16 @@ public class OrderBean {
     private double orderMoney;
     private Date orderDate;
 
+    private Integer totalBookCount;
+
+    public void setTotalBookCount(Integer totalBookCount) {
+        this.totalBookCount = totalBookCount;
+    }
+
+    public Integer getTotalBookCount() {
+        return totalBookCount;
+    }
+
     public Integer getId() {
         return id;
     }

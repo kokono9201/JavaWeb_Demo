@@ -23,7 +23,6 @@ import javax.servlet.http.HttpSession;
  * @create 2022-10-30-23:00
  */
 @Controller
-@SessionAttributes("currentUser")
 public class UserController {
 
     @Autowired
@@ -32,15 +31,16 @@ public class UserController {
     private CartItemService cartItemService;
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String uname, String pwd, RedirectAttributesModelMap map){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(String uname, String pwd, HttpSession session){
 
         User user = userService.login(uname,pwd);
 
         if(user!=null){
             Cart cart = cartItemService.getCart(user);
             user.setCart(cart);
-            map.addFlashAttribute("currentUser",user);
+            session.setAttribute("currentUser", user);
+//            map.addFlashAttribute("currentUser",user);
 
             return "redirect:/index";
         }

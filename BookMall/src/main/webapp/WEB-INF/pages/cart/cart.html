@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/static/css/minireset.css}" />
     <link rel="stylesheet" th:href="@{/static/css/common.css}" />
     <link rel="stylesheet" th:href="@{/static/css/cart.css}" />
+    <script language="JavaScript" th:src="@{/static/script/cart.js}"></script>
   </head>
   <body>
     <div class="header">
@@ -16,9 +17,9 @@
             <img th:src="@{/static/img/logo.gif}" alt=""/></a>
           <h1>My Cart</h1>
         </div>
-        <div class="header-right">
+        <div class="header-right" th:fragment="userInfo">
           <h3>Welcome <span th:text="${session.currentUser.uname}">张总</span>Welcome to Book Mall</h3>
-          <div class="order"><a href="../order/order.html">My Order</a></div>
+          <div class="order"><a th:href="@{/getOrder}">My Order</a></div>
           <div class="destory"><a href="../index.html">Logout</a></div>
           <div class="gohome">
             <a href="../index.html">Back</a>
@@ -50,13 +51,13 @@
               </td>
               <td>
                 <!-- <div> -->
-                <span class="count">-</span>
+                <span class="count" th:onclick="|editCart(${cartItem.id},${cartItem.buyCount-1})|">-</span>
                 <input class="count-num" type="text" value="100" th:value="${cartItem.buyCount}"/>
-                <span class="count">+</span>
+                <span class="count" th:onclick="|editCart(${cartItem.id},${cartItem.buyCount+1})|">+</span>
                 <!-- </div> -->
               </td>
               <td th:text="${cartItem.book.price}">40.1</td>
-              <td th:text="${cartItem.book.price * cartItem.buyCount}">40.1</td>
+              <td th:text="${cartItem.tempCount}">40.1</td>
               <td><a href="">Delete</a></td>
             </tr>
           </tbody>

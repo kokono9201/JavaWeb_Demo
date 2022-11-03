@@ -1,5 +1,7 @@
 package com.chen.book.pojo;
 
+import java.util.List;
+
 /**
  * @author CHEN
  * @create 2022-10-30-21:58
@@ -12,6 +14,16 @@ public class User {
     private Integer role;
 
     private Cart cart;
+
+    public List<OrderBean> getOrderBeanList() {
+        return orderBeanList;
+    }
+
+    public void setOrderBeanList(List<OrderBean> orderBeanList) {
+        this.orderBeanList = orderBeanList;
+    }
+
+    private List<OrderBean> orderBeanList;
 
     public Cart getCart() {
         return cart;

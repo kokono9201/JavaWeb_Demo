@@ -23,7 +23,7 @@
           <div class="topbar-right" th:if="${currentUser==null}">
             <a href="user/login.html" class="login">Login</a>
             <a href="user/regist.html" class="register">Register</a>
-            <a href="cart/cart.html"  class="cart iconfont icon-gouwuche">
+            <a th:href="@{/cart}"  class="cart iconfont icon-gouwuche">
               Cart
               <div class="cart-num" th:text="${currentUser.cart.totalCount}">3</div>
             </a>
